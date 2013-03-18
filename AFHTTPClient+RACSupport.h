@@ -29,10 +29,38 @@
 
 @interface AFHTTPClient (RACSupport)
 
+// Enqueues an AFHTTPRequestOperation and returns a signal.
+//
+// requestOperation - The request operation to enqueue.
+//
+// The returned signal sends a tuple of ((AFHTTPRequestOperation *)operation,
+// (id)responseObject), then completes.
 - (RACSignal *)rac_enqueueHTTPRequestOperation:(AFHTTPRequestOperation *)requestOperation;
+
+// Enqueues an AFHTTPRequestOperation created from `urlRequest` and returns a
+// signal.
+//
+// urlRequest - The request used to create a request operation.
+//
+// The returned signal sends a tuple of ((AFHTTPRequestOperation *)operation,
+// (id)responseObject), then completes.
 - (RACSignal *)rac_enqueueHTTPRequestOperationWithRequest:(NSURLRequest *)urlRequest;
 
+// Enqueues a set of AFHTTPRequestOperation into a batch and returns a signal.
+//
+// requestOperations - The request operations to enqueue.
+//
+// The returned signal sends a tuple of ((AFHTTPRequestOperation *)operation,
+// (id)responseObject), then completes.
 - (RACSignal *)rac_enqueueBatchOfHTTPRequestOperations:(NSArray *)requestOperations;
+
+// Enqueues a set of AFHTTPRequestOperation, created from the given requests,
+// into a batch and returns a signal.
+//
+// urlRequest - The requests used to create request operations.
+//
+// The returned signal sends a tuple of ((AFHTTPRequestOperation *)operation,
+// (id)responseObject), then completes.
 - (RACSignal *)rac_enqueueBatchOfHTTPRequestOperationsWithRequests:(NSArray *)urlRequests;
 
 @end

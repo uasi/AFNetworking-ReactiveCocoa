@@ -29,6 +29,9 @@
 
 @interface AFHTTPRequestOperation (RACSupport)
 
+// Sets completion block for `subject`.
+//
+// subject - The subject.
 - (void)rac_setCompletionBlockWithSubject:(RACSubject *)subject;
 
 @end
