@@ -51,7 +51,7 @@
 // requestOperations - The request operations to enqueue.
 //
 // The returned signal sends a tuple of ((AFHTTPRequestOperation *)operation,
-// (id)responseObject), then completes.
+// (id)responseObject) for each completed request, then completes.
 - (RACSignal *)rac_enqueueBatchOfHTTPRequestOperations:(NSArray *)requestOperations;
 
 // Enqueues a set of AFHTTPRequestOperation, created from the given requests,
@@ -60,7 +60,7 @@
 // urlRequest - The requests used to create request operations.
 //
 // The returned signal sends a tuple of ((AFHTTPRequestOperation *)operation,
-// (id)responseObject), then completes.
+// (id)responseObject) for each completed request, then completes.
 - (RACSignal *)rac_enqueueBatchOfHTTPRequestOperationsWithRequests:(NSArray *)urlRequests;
 
 @end
