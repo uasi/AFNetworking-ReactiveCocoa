@@ -29,6 +29,8 @@
 
 @interface AFHTTPClient (RACSupport)
 
+#pragma mark -
+
 // Enqueues an AFHTTPRequestOperation and returns a signal.
 //
 // requestOperation - The request operation to enqueue.
@@ -62,5 +64,62 @@
 // The returned signal sends a tuple of ((AFHTTPRequestOperation *)operation,
 // (id)responseObject) for each completed request, then completes.
 - (RACSignal *)rac_enqueueBatchOfHTTPRequestOperationsWithRequests:(NSArray *)urlRequests;
+
+#pragma mark -
+
+// Creates an AFHTTPRequestOperation with a `GET` request,
+// and enqueues it to the HTTP client's operation queue,
+// and then returns a signal
+//
+// path - The path to be appended to the HTTP client's base URL and used as the request URL.
+// parameters - The parameters to be encoded and set in the request HTTP body.
+//
+// The returned signal sends a tuple of ((AFHTTPRequestOperation *)operation,
+// (id)responseObject) for each completed request, then completes.
+- (RACSignal *)rac_getPath:(NSString *)path parameters:(NSDictionary *)parameters;
+
+// Creates an AFHTTPRequestOperation with a `POST` request,
+// and enqueues it to the HTTP client's operation queue,
+// and then returns a signal
+//
+// path - The path to be appended to the HTTP client's base URL and used as the request URL.
+// parameters - The parameters to be encoded and set in the request HTTP body.
+//
+// The returned signal sends a tuple of ((AFHTTPRequestOperation *)operation,
+// (id)responseObject) for each completed request, then completes.
+- (RACSignal *)rac_postPath:(NSString *)path parameters:(NSDictionary *)parameters;
+
+// Creates an AFHTTPRequestOperation with a `PUT` request,
+// and enqueues it to the HTTP client's operation queue,
+// and then returns a signal
+//
+// path - The path to be appended to the HTTP client's base URL and used as the request URL.
+// parameters - The parameters to be encoded and set in the request HTTP body.
+//
+// The returned signal sends a tuple of ((AFHTTPRequestOperation *)operation,
+// (id)responseObject) for each completed request, then completes.
+- (RACSignal *)rac_putPath:(NSString *)path parameters:(NSDictionary *)parameters;
+
+// Creates an AFHTTPRequestOperation with a `DELETE` request,
+// and enqueues it to the HTTP client's operation queue,
+// and then returns a signal
+//
+// path - The path to be appended to the HTTP client's base URL and used as the request URL.
+// parameters - The parameters to be encoded and set in the request HTTP body.
+//
+// The returned signal sends a tuple of ((AFHTTPRequestOperation *)operation,
+// (id)responseObject) for each completed request, then completes.
+- (RACSignal *)rac_deletePath:(NSString *)path parameters:(NSDictionary *)parameters;
+
+// Creates an AFHTTPRequestOperation with a `PATCH` request,
+// and enqueues it to the HTTP client's operation queue,
+// and then returns a signal
+//
+// path - The path to be appended to the HTTP client's base URL and used as the request URL.
+// parameters - The parameters to be encoded and set in the request HTTP body.
+//
+// The returned signal sends a tuple of ((AFHTTPRequestOperation *)operation,
+// (id)responseObject) for each completed request, then completes.
+- (RACSignal *)rac_patchPath:(NSString *)path parameters:(NSDictionary *)parameters;
 
 @end
