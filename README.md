@@ -26,9 +26,8 @@ Synopsis
   // Subscribe the signal, which will send a tuple of the request operation
   // and the response object.
   [signal
-   subscribeNext:^(RACTuple *opAndResp) {
-     AFHTTPRequestOperation *operation = [opAndResp first];
-     id responseObject = [opAndResp second];
+   subscribeNext:^(RACTuple *tuple) {
+     RACTupleUnpack(AFHTTPRequestOperation *operation, id responseObject) = tuple;
      NSLog(@"success: operation=%@, responseObject=%@", operation, responseObject);
   }
    error:^(NSError *error) {
