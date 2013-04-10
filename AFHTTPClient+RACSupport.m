@@ -29,6 +29,8 @@
 
 @implementation AFHTTPClient (RACSupport)
 
+#pragma mark - 
+
 - (RACSignal *)rac_enqueueHTTPRequestOperation:(AFHTTPRequestOperation *)requestOperation
 {
     RACReplaySubject *subject = [RACReplaySubject replaySubjectWithCapacity:1];
@@ -62,6 +64,41 @@
         return [self HTTPRequestOperationWithRequest:urlRequest success:NULL failure:NULL];
     }] array];
     return [self rac_enqueueBatchOfHTTPRequestOperations:requestOperations];
+}
+
+#pragma mark -
+
+- (RACSignal *)rac_getPath:(NSString *)path parameters:(NSDictionary *)parameters
+{
+    return [self rac_enqueueRequestWithMethod:@"GET" path:path parameters:parameters];
+}
+
+- (RACSignal *)rac_postPath:(NSString *)path parameters:(NSDictionary *)parameters
+{
+    return [self rac_enqueueRequestWithMethod:@"POST" path:path parameters:parameters];
+}
+
+- (RACSignal *)rac_putPath:(NSString *)path parameters:(NSDictionary *)parameters
+{
+    return [self rac_enqueueRequestWithMethod:@"PUT" path:path parameters:parameters];
+}
+
+- (RACSignal *)rac_deletePath:(NSString *)path parameters:(NSDictionary *)parameters
+{
+    return [self rac_enqueueRequestWithMethod:@"DELETE" path:path parameters:parameters];
+}
+
+- (RACSignal *)rac_patchPath:(NSString *)path parameters:(NSDictionary *)parameters
+{
+    return [self rac_enqueueRequestWithMethod:@"PATCH" path:path parameters:parameters];
+}
+
+- (RACSignal *)rac_enqueueRequestWithMethod:(NSString *)method
+                                       path:(NSString *)path
+                                 parameters:(NSDictionary *)parameters
+{
+    NSURLRequest *request = [self requestWithMethod:method path:path parameters:parameters];
+    return [self rac_enqueueHTTPRequestOperationWithRequest:request];
 }
 
 @end

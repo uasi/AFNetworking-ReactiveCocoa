@@ -58,6 +58,12 @@ AFNetworking-ReactiveCocoa adds these methods:
 - (RACSignal *)rac_enqueueBatchOfHTTPRequestOperations:(NSArray *)requestOperations;
 - (RACSignal *)rac_enqueueBatchOfHTTPRequestOperationsWithRequests:(NSArray *)urlRequests;
 
+- (RACSignal *)rac_getPath:(NSString *)path parameters:(NSDictionary *)parameters;
+- (RACSignal *)rac_postPath:(NSString *)path parameters:(NSDictionary *)parameters;
+- (RACSignal *)rac_putPath:(NSString *)path parameters:(NSDictionary *)parameters;
+- (RACSignal *)rac_deletePath:(NSString *)path parameters:(NSDictionary *)parameters;
+- (RACSignal *)rac_patchPath:(NSString *)path parameters:(NSDictionary *)parameters;
+
 @end
 
 @interface AFHTTPRequestOperation (RACSupport)
