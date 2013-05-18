@@ -23,5 +23,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#ifndef AFNETWORKING_REACTIVECOCOA_IGNORE_DEPRECATION
+#warning AFNetworking-ReactiveCocoa is deprecated. Use AFNetworking-RACExtensions instead.
+// AFNetworking-RACExtensions: https://github.com/CodaFi/AFNetworking-RACExtensions
+#endif
+
 #import "AFHTTPClient+RACSupport.h"
 #import "AFHTTPRequestOperation+RACSupport.h"

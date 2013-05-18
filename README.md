@@ -1,3 +1,7 @@
+**DEPRECATED. Use [AFNetworking-RACExtensions](https://github.com/CodaFi/AFNetworking-RACExtensions) instead.**
+
+----
+
 AFNetworking-ReactiveCocoa
 ==========================
 
